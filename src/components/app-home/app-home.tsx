@@ -1,5 +1,7 @@
 import { Component } from '@stencil/core';
 
+import { askForPushNotifications } from '../../helpers/firebase';
+
 @Component({
   tag: 'app-home',
   styleUrl: 'app-home.css'
@@ -23,6 +25,8 @@ export class AppHome {
         </p>
 
         <ion-button href="/profile/ionic" expand="block">Profile page</ion-button>
+        
+        <ion-button onClick={askForPushNotifications}>Ask for Push Notifications</ion-button>
       </ion-content>
     ];
   }

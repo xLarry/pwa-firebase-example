@@ -11,3 +11,17 @@ export const initializeFirebase = () => {
       firebase.messaging().useServiceWorker(registration);
     });
 }
+
+export const askForPushNotifications = async () => {
+  try {
+    const messaging = firebase.messaging();
+    await messaging.requestPermission();
+    const token = await messaging.getToken();
+    
+    console.log('firebase Token:', token);
+    
+    return token;
+  } catch (error) {
+    console.error(error);
+  }
+}
